@@ -49,29 +49,41 @@ $hotels = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>php hotel</title>
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
     <main>
-        <h1>Hotels</h1>
-        <?php
-        foreach ($hotels as $index => $hotel) {
-            $numero_dell_hotel = ++$index;
-            echo "Hotel N° $numero_dell_hotel";
-            echo "<br>";
-            foreach ($hotel as $key => $value) {
-                echo $key . "" . $value;
-                if ($key === "parking" && $value === true) {
-                    echo " " . "è presente";
-                } elseif ($key === "parking" && $value === false) {
-                    echo " " . "non è presente";
+        <h1 class="text-center mt-3">Hotels</h1>
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrizione</th>
+                    <th scope="col">Parcheggio</th>
+                    <th scope="col">Voto</th>
+                    <th scope="col">Distanza dal centro (km)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($hotels as $hotel) {
+                ?>
+                    <tr>
+                        <td class="table-primary"><?php echo $hotel['name'] ?></td>
+                        <td><?php echo $hotel['description'] ?></td>
+                        <td class="table-primary"><?php echo $hotel['parking'] ? 'si' : 'no' ?></td>
+                        <td><?php echo $hotel['vote'] ?></td>
+                        <td class="table-primary"><?php echo $hotel['distance_to_center'] ?></td>
+                    </tr>
+                <?php
                 }
-                echo "<br>";
-            }
-            echo '<hr>';
-        }
-        ?>
+                ?>
+            </tbody>
+        </table>
     </main>
+
 </body>
 
 </html>
