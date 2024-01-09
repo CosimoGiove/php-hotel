@@ -59,7 +59,7 @@ $hotels = [
         <table class="table" >
             <thead>
                 <tr>
-                    <th scope="col">Nome</th>
+                    <th scope="col">Nome hotel</th>
                     <th scope="col">Descrizione</th>
                     <th scope="col">Parcheggio</th>
                     <th scope="col">Voto</th>
